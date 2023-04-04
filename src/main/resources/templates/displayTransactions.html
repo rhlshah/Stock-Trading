@@ -1,0 +1,51 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Transaction History</title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+          crossorigin="anonymous" />
+</head>
+<body>
+<nav class="navbar navbar-expand">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a href="/portfolio">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <li><a href="/stocks">Stocks</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <li><a href="/history">Transactions</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <li><a href="/checkBalance">Account</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <li><a href="/marketinfo">Market Hours</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <l1><a href="/logout">Logout</a></l1>
+        </ul>
+    </div>
+</nav>
+<div class = "container">
+    <h2>Your Transaction History</h2>
+    <hr/>
+    <table class = "table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Execution Date</th>
+            <th>Type</th>
+            <th>Stock Ticker</th>
+            <th>Quantity</th>
+            <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each = "transaction: ${transactions}">
+            <td th:text = "${transaction.date}"></td>
+            <td th:text = "${transaction.status}"></td>
+            <td th:text = "${transaction.ticker}"></td>
+            <td th:text = "${transaction.quantity}"></td>
+            <td th:text = "${transaction.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

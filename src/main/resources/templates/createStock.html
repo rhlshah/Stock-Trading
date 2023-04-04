@@ -1,0 +1,37 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stocks Listing</title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+          crossorigin="anonymous" />
+</head>
+<body>
+<nav class="navbar navbar-expand">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a href="/admin/stocks">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <li><a href="/updateHours">Change Market Hours</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            <li><a href="/create/stocks">Create Stock</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+<!--            <li><a href="/marketinfo">Market Hours</a></li>&nbsp;&nbsp;&nbsp;&nbsp;-->
+            <l1><a href="/logout">Logout</a></l1>
+        </ul>
+    </div>
+</nav>
+<div class = "container">
+    <h2> Create Stock</h2>
+    <hr/>
+    <form method="post" action="/produce/stocks">
+        <input type="text" id="ticker" name="ticker" placeholder="Enter Stock Ticker" />
+        <input type="text" id="name" name="name" placeholder="Enter Stock Name" />
+        <input type="number" id="curPrice" name="curPrice" placeholder="Enter Initial Price" />
+        <input type="number" id="volume" name="volume" placeholder="Enter Volume" />
+
+        <button type="submit">Create</button>
+    </form>
+</div>
+</body>
+</html>

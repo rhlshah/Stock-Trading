@@ -1,0 +1,74 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="../static/style.css" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+          crossorigin="anonymous" />
+</head>
+<body>
+<div class = "container" >
+    <div style="text-align: center;">
+        <h2>Welcome to Stock Trading Platform</h2>
+        <img src="https://img.freepik.com/free-vector/gradient-stock-market-concept_23-2149166910.jpg" width="200" height="200">
+        <br>
+        <br>
+
+        <div th:if="${status}">
+            <!--status is true-->
+            <p>You are logged in :)</p>
+        </div>
+        <div th:unless="${status}">
+            <!--    <button type="submit">Register</button>-->
+            <!--    <button type="submit">Login</button>-->
+            <a href="/login" class="btn btn-primary">Login</a>
+            <a href="/register" class="btn btn-primary">Register</a>
+        </div>
+    </div>
+    <br>
+    <h2>Features</h2>
+    <hr/>
+    <div class="block1">
+        <div class="wallet-text">
+            <h3>Wallet</h3>
+            <br>
+            Users can add/withdraw balance to trade stocks
+        </div>
+        <div class="wallet-image">
+            <img src="https://media.istockphoto.com/id/180756294/photo/wallet.jpg?s=612x612&w=0&k=20&c=sc6I6KsEbiv9Y4BtKji8w5rBYono2X63-ipfhYk6Ytg=" width="200" height="200">
+        </div>
+    </div>
+    <div class="block1">
+        <div class="wallet-image">
+            <img src="https://images.klipfolio.com/website/public/22b133bc-124d-44f4-85f8-9170b08d3ce9/dashboard-examples-hero.png" width="200" height="200">
+        </div>
+        <div class="wallet-text">
+            <h3>Dashboards</h3>
+            <br>
+            Users can view their current portfolio value and transaction history
+        </div>
+    </div>
+    <div class="block3">
+        <div class="wallet-text">
+            <h3>Market Control</h3>
+            <br>
+            Admin can create stocks and change market hours
+        </div>
+        <div class="wallet-image">
+            <img src="https://media.istockphoto.com/id/811268074/photo/laptop-computer-desktop-pc-human-hand-office-soft-focus-picture-vintage-concept.jpg?s=612x612&w=0&k=20&c=-SZ1qYCD0XL30VA0SIjhsUksmMzoNv2vAeEzL0e7WIc=" width="200" height="200">
+        </div>
+    </div>
+    <ul>
+        <li>Wallet: </li>
+        <li>Dashboards: </li>
+        <li>Market Control: </li>
+    </ul>
+</div>
+</body>
+</html>

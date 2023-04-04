@@ -1,0 +1,52 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Stocks Listing</title>
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous" />
+</head>
+<body>
+<nav class="navbar navbar-expand">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="/admin/stocks">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="/updateHours">Change Market Hours</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="/create/stocks">Create Stock</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+<!--      <li><a href="/marketinfo">Market Hours</a></li>&nbsp;&nbsp;&nbsp;&nbsp;-->
+      <l1><a href="/logout">Logout</a></l1>
+    </ul>
+  </div>
+</nav>
+<div class = "container">
+  <table class = "table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Start Time</th>
+      <th>End Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each = "market: ${markets}">
+      <td th:text = "${market.start}"></td>
+      <td th:text = "${market.end}"></td>
+    </tr>
+    </tbody>
+  </table>
+  <h2> Update Market Hours</h2>
+  <p> Enter time in 24 hrs format (e.g., 5 PM as 17:00)</p>
+
+  <!-- TODO : display current market hours -->
+
+  <hr/>
+  <form th:action="@{/change}" th:method="post">
+    <input type="text" id="start" name="start" placeholder="Enter Start Time" />
+    <input type="text" id="end" name="end" placeholder="Enter End Time" />
+    <button type="submit">Update</button>
+  </form>
+</div>
+</body>
+</html>

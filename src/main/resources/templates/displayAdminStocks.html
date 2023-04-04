@@ -1,0 +1,55 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Stocks Listing</title>
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous" />
+</head>
+<body>
+<nav class="navbar navbar-expand">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="/admin/stocks">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="/updateHours">Change Market Hours</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+      <li><a href="/create/stocks">Create Stock</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+<!--      <li><a href="/marketinfo">Market Hours</a></li>&nbsp;&nbsp;&nbsp;&nbsp;-->
+      <l1><a href="/logout">Logout</a></l1>
+    </ul>
+  </div>
+</nav>
+<div class = "container">
+  <h2>Stocks Listing</h2>
+  <hr/>
+  <table class = "table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Stock Ticker</th>
+      <th>Name</th>
+      <th>Trading Price</th>
+      <th>Remaining Quantity</th>
+      <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each = "stock: ${stocks}">
+      <td th:text = "${stock.ticker}"></td>
+      <td th:text = "${stock.name}"></td>
+      <td th:text = "${stock.curPrice}"></td>
+      <td th:text = "${stock.available}"></td>
+      <td>
+        <a th:href="@{/adminstockDetails?ticker={ticker}(ticker = ${stock.ticker})}" style="text-decoration: underline"> Stock Details </a>
+        <!--                <a th:href="@{/stockDetails?ticker={ticker}(ticker = ${stock.ticker})}" style="text-decoration: underline"> Stock Details </a>-->
+
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
