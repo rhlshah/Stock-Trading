@@ -247,6 +247,27 @@ public class PersonController {
     }
 
 
+    @GetMapping(path = "/error")
+    public ModelAndView dashboarderror() {
+        boolean status = userDetailService.userLoggedIn();
+        System.out.println("User Logged In: "+status);
+
+        if(status){
+            boolean isAdmin = userDetailService.isAdmin();
+            if(isAdmin){
+                return new ModelAndView("redirect:/admin/stocks");
+            }else{
+                return new ModelAndView("redirect:/portfolio");
+            }
+        }
+
+        ModelAndView mav = new ModelAndView("home");
+        mav.addObject("status", status);
+        return mav;
+    }
+
+
+
 
     @GetMapping(path = "/")
     public ModelAndView dashboard() {
