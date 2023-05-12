@@ -42,3 +42,8 @@ Random Stock Price Generator:
 - Allow the stock prices to fluctuate during the day with a custom random price generator. The
 price should gradually go up or down throughout the day.
 
+
+
+Architecture:
+![Screenshot](architecture.jpeg)
+
