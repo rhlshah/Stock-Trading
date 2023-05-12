@@ -45,5 +45,19 @@ price should gradually go up or down throughout the day.
 
 
 Architecture:
+
 ![Screenshot](architecture.jpeg)
+
+
+Steps to run the application locally:
+
+1) Install JDK 17
+2) Install PostgreSQL 15
+3) Create database name "stocktrading" in Postgres
+4) Set username = "postgres"
+5) Ser password = "admin"
+6) Download the platform-0.0.1-SNAPSHOT.jar file
+7) Run the given jar file using the following command:
+
+java -jar platform-0.0.1-SNAPSHOT.jar
 
